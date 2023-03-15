@@ -1,4 +1,5 @@
 import React from "react";
+import { Input, List } from "antd"
 
 // class TodoItem extends React.Component {
 //     render() {
@@ -11,7 +12,8 @@ import React from "react";
 //     }
 // }
 
-const TodoItem = ({ todo }) => <li>{todo}</li>
+// const TodoItem = ({ todo }) => <li>{todo}</li>
+const TodoItem = ({ todo }) => <List.Item>{todo}</List.Item>;
 
 class TodoList extends React.Component {
     state = {
@@ -40,20 +42,36 @@ class TodoList extends React.Component {
 
     render() {
         return(
-            <div>
-                <ul>
+            <div style={{width: '300px', margin: ' 30px auto '}}>
+                <List 
+                    header={"Todo List"}
+                    dataSource={this.state.todoList}
+                    bordered={true}
+                    renderItem={todo => <TodoItem todo={todo} />}
+                    style={{marginBottom: '4px'}}
+                />
+
+                <Input 
+                    type="text" 
+                    value={this.state.current} 
+                    placeholder={"할일을 입력해 주세요"}
+                    onChange={this.onChange} 
+                    onKeyDown={this.onKeyDown}
+                />
+
+                {/* <ul>
                     {this.state.todoList.map((todo, index) => 
                         <TodoItem key={index} todo={todo} />)}
                 </ul>
                 <input 
                     type="text" 
                     value={this.state.current} 
+                    placeholder="할일을 입력해 주세요"
                     onChange={this.onChange} 
                     onKeyDown={this.onKeyDown}
-                    placeholder="할일을 입력해 주세요"
                 />
-                <hr/>
-                {JSON.stringify(this.state)}
+                <hr/> */}
+                
             </div>
         ) 
     }
