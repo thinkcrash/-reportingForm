@@ -1,6 +1,6 @@
 {
   "name": "reporting_form",
-  "homepage": "https://thinkcrash.github.io/reportingForm/reporting_form/",
+  "homepage": "https://thinkcrash.github.io/reportingForm/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
